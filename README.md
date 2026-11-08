@@ -1,9 +1,4 @@
 # Go Quests
-This quests are not made by me
-
-
-![original](https://github.com/Srinidhi444/go-quests-practice)
-
 <p align="center"><strong>⭐ If these quests helped you learn Go, please consider starring the repo.</strong></p>
 
 
