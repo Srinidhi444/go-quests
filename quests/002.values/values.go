@@ -25,8 +25,28 @@ type Result struct {
 	ZeroMap map[string]int
 }
 
+func Add(a, b int) int {
+	return a + b
+}
+
 func BuildValues() Result {
-	// TODO: implement
-	// Read README.md for the instructions
-	return Result{}
+	mp := map[string]int{"apple": 2, "banana": 5}
+	x := 10
+	var interfaceVal interface{} = 100
+	var ZeroMap map[string]int
+	res := Result{
+		Str:     "go",
+		Int:     42,
+		Float:   3.14,
+		Bool:    true,
+		Array:   [3]int{1, 2, 3},
+		Slice:   []int{4, 5, 6, 7},
+		Map:     mp,
+		User:    User{Name: "Alice", Age: 20},
+		Ptr:     &x,
+		AddFn:   Add,
+		Any:     interfaceVal,
+		ZeroMap: ZeroMap,
+	}
+	return res
 }
