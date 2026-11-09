@@ -45,11 +45,13 @@ func PointersQuest() {
 	// Make x become 15
 	x := 5
 	// CALL THE CORRECT FUNCTION HERE
+	addTenPointer(&x)
 	fmt.Println(x) // expect: 15
 
 	// Task 2:
 	// Make y become 0
 	y := 42
+	resetPointer(&y)
 	// CALL THE CORRECT FUNCTION HERE
 	fmt.Println(y) // expect: 0
 
@@ -57,11 +59,13 @@ func PointersQuest() {
 	// Swap a and b so output is: 9 3
 	a, b := 3, 9
 	// CALL THE CORRECT FUNCTION HERE
+	swapPointer(&a, &b)
 	fmt.Println(a, b) // expect: 9 3
 
 	// Task 4:
 	// Make slice contain [1 2 3 100]
 	s := []int{1, 2, 3}
 	// CALL THE CORRECT FUNCTION HERE
+	appendPointer(&s)
 	fmt.Println(s) // expect: [1 2 3 100]z
 }
