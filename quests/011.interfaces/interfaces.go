@@ -13,13 +13,17 @@ type CardPayment struct {
 func (c *CardPayment) Process(amount float64) bool {
 	// TODO: implement
 	// Read README.md for the instructions
+	if c.Limit >= amount {
+		c.Limit -= amount
+		return true
+	}
 	return false
 }
 
 func (c CardPayment) Provider() string {
 	// TODO: implement
 	// Read README.md for the instructions
-	return ""
+	return "CARD"
 }
 
 type UPIPayment struct {
@@ -29,13 +33,14 @@ type UPIPayment struct {
 func (u UPIPayment) Process(amount float64) bool {
 	// TODO: implement
 	// Read README.md for the instructions
-	return false
+
+	return true
 }
 
 func (u UPIPayment) Provider() string {
 	// TODO: implement
 	// Read README.md for the instructions
-	return ""
+	return "UPI"
 }
 
 type CryptoPayment struct {
@@ -46,23 +51,35 @@ type CryptoPayment struct {
 func (c *CryptoPayment) Process(amount float64) bool {
 	// TODO: implement
 	// Read README.md for the instructions
+	if c.Balance >= amount {
+		c.Balance -= amount
+		return true
+	}
 	return false
 }
 
 func (c CryptoPayment) Provider() string {
 	// TODO: implement
 	// Read README.md for the instructions
-	return ""
+	return "CRYPTO"
 }
 
 func Checkout(p PaymentMethod, amount float64) string {
 	// TODO: implement
 	// Read README.md for the instructions
-	return ""
+	sucess := p.Process(amount)
+	if sucess {
+		return "Payment successful via " + p.Provider()
+	}
+	return "payment failed via " + p.Provider()
 }
 
 func DetectCrypto(p PaymentMethod) bool {
 	// TODO: implement
 	// Read README.md for the instructions
+	provider := p.Provider()
+	if provider == "CRYPTO" {
+		return true
+	}
 	return false
 }
